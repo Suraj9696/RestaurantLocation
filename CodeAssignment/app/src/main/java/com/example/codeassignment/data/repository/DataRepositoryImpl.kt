@@ -6,13 +6,16 @@ import com.example.codeassignment.data.source.MockApiDataSource
 import com.example.codeassignment.domain.model.DataItem
 import com.example.codeassignment.domain.model.Location
 import com.example.codeassignment.domain.repository.DataRepository
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
 /**
  * Implementation of the DataRepository interface.
  * Responsible for fetching and storing data using data sources.
  */
-class DataRepositoryImpl : DataRepository {
+@Singleton
+class DataRepositoryImpl @Inject constructor() : DataRepository {
     override fun getData(location: Location): List<DataItem> {
         val entities = MockApiDataSource.getNearby(location)
         return DataMapper.fromEntityList(entities)
