@@ -5,7 +5,9 @@ plugins {
     kotlin("kapt")
 }
 
-
+hilt {
+    enableAggregatingTask = false
+}
 
 android {
     namespace = "com.example.codeassignment"
@@ -56,7 +58,7 @@ dependencies {
 
     // Optional but usually needed
     implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    //implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 
     // For ViewModel and activity KTX (for by viewModels)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.0")
